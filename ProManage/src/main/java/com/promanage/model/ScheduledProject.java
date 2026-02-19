@@ -2,33 +2,57 @@ package com.promanage.model;
 
 public class ScheduledProject {
 
-    private int     scheduleId;
+    private int scheduleId;
     private Project project;
-    private int     dayNumber;
-    private String  dayName;
+    private int dayNumber;
+    private String dayName;
 
-    private static final String[] DAY_NAMES =
-            { "", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
+    private static final String[] DAY_NAMES = { "",
+            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
+            "Monday (W2)", "Tuesday (W2)", "Wednesday (W2)", "Thursday (W2)", "Friday (W2)", "Saturday (W2)",
+            "Sunday (W2)"
+    };
 
-    public ScheduledProject() {}
-
-    public ScheduledProject(Project project, int dayNumber) {
-        this.project   = project;
-        this.dayNumber = dayNumber;
-        this.dayName   = (dayNumber >= 1 && dayNumber <= 5) ? DAY_NAMES[dayNumber] : "Unknown";
+    public ScheduledProject() {
     }
 
-    public int     getScheduleId()               { return scheduleId; }
-    public void    setScheduleId(int id)         { this.scheduleId = id; }
+    public ScheduledProject(Project project, int dayNumber) {
+        this.project = project;
+        this.dayNumber = dayNumber;
+        this.dayName = (dayNumber >= 1 && dayNumber < DAY_NAMES.length) ? DAY_NAMES[dayNumber] : "Unknown";
+    }
 
-    public Project getProject()                  { return project; }
-    public void    setProject(Project p)         { this.project = p; }
+    public int getScheduleId() {
+        return scheduleId;
+    }
 
-    public int     getDayNumber()                { return dayNumber; }
-    public void    setDayNumber(int d)           { this.dayNumber = d; }
+    public void setScheduleId(int id) {
+        this.scheduleId = id;
+    }
 
-    public String  getDayName()                  { return dayName; }
-    public void    setDayName(String name)       { this.dayName = name; }
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project p) {
+        this.project = p;
+    }
+
+    public int getDayNumber() {
+        return dayNumber;
+    }
+
+    public void setDayNumber(int d) {
+        this.dayNumber = d;
+    }
+
+    public String getDayName() {
+        return dayName;
+    }
+
+    public void setDayName(String name) {
+        this.dayName = name;
+    }
 
     @Override
     public String toString() {

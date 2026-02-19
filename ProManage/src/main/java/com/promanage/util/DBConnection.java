@@ -7,8 +7,8 @@ import java.sql.SQLException;
 public class DBConnection {
 
     private static final String URL      = "jdbc:postgresql://localhost:5432/promanage_db";
-    private static final String USERNAME = "postgres";
-    private static final String PASSWORD = "ritik2006"; // Change this
+    private static final String USERNAME = System.getenv("DB_USER") != null ? System.getenv("DB_USER") : "postgres";
+    private static final String PASSWORD = System.getenv("DB_PASS") != null ? System.getenv("DB_PASS") : "ritik2006";
 
     private static Connection connection = null;
 
